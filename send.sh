@@ -67,6 +67,11 @@ WEBHOOK_DATA='{
         "name": "Branch",
         "value": "'"[\`$TRAVIS_BRANCH\`](https://github.com/$TRAVIS_REPO_SLUG/tree/$TRAVIS_BRANCH)"'",
         "inline": true
+      },
+      {
+        "name": "Release",
+        "value": "'"[\`$COMMIT_TAG\`](https://github.com/$TRAVIS_REPO_SLUG/releases/tag/$COMMIT_TAG)"'",
+        "inline": true
       }
     ],
     "timestamp": "'"$TIMESTAMP"'"
