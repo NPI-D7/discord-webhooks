@@ -44,39 +44,78 @@ else
 fi
 
 TIMESTAMP=$(date --utc +%FT%TZ)
-WEBHOOK_DATA='{
-  "username": "",
-  "avatar_url": "https://travis-ci.org/images/logos/TravisCI-Mascot-1.png",
-  "embeds": [ {
-    "color": '$EMBED_COLOR',
-    "author": {
-      "name": "Job #'"$TRAVIS_JOB_NUMBER"' (Build #'"$TRAVIS_BUILD_NUMBER"') '"$STATUS_MESSAGE"' - '"$TRAVIS_REPO_SLUG"'",
-      "url": "'"$TRAVIS_BUILD_WEB_URL"'",
-      "icon_url": "'$AVATAR'"
-    },
-    "title": "'"$COMMIT_SUBJECT"'",
-    "url": "'"$URL"'",
-    "description": "'"${COMMIT_MESSAGE//$'\n'/ }"\\n\\n"$CREDITS"'",
-    "fields": [
-      {
-        "name": "Commit",
-        "value": "'"[\`${TRAVIS_COMMIT:0:7}\`](https://github.com/$TRAVIS_REPO_SLUG/commit/$TRAVIS_COMMIT)"'",
-        "inline": true
+if [ $IMAGE = "" ]; then
+  WEBHOOK_DATA='{
+    "username": "",
+    "avatar_url": "https://travis-ci.org/images/logos/TravisCI-Mascot-1.png",
+    "embeds": [ {
+      "color": '$EMBED_COLOR',
+      "author": {
+        "name": "Job #'"$TRAVIS_JOB_NUMBER"' (Build #'"$TRAVIS_BUILD_NUMBER"') '"$STATUS_MESSAGE"' - '"$TRAVIS_REPO_SLUG"'",
+        "url": "'"$TRAVIS_BUILD_WEB_URL"'",
+        "icon_url": "'$AVATAR'"
       },
-      {
-        "name": "Branch",
-        "value": "'"[\`$TRAVIS_BRANCH\`](https://github.com/$TRAVIS_REPO_SLUG/tree/$TRAVIS_BRANCH)"'",
-        "inline": true
+      "title": "'"$COMMIT_SUBJECT"'",
+      "url": "'"$URL"'",
+      "description": "'"${COMMIT_MESSAGE//$'\n'/ }"\\n\\n"$CREDITS"'",
+      "fields": [
+        {
+          "name": "Commit",
+          "value": "'"[\`${TRAVIS_COMMIT:0:7}\`](https://github.com/$TRAVIS_REPO_SLUG/commit/$TRAVIS_COMMIT)"'",
+          "inline": true
+        },
+        {
+          "name": "Branch",
+          "value": "'"[\`$TRAVIS_BRANCH\`](https://github.com/$TRAVIS_REPO_SLUG/tree/$TRAVIS_BRANCH)"'",
+          "inline": true
+        },
+        {
+          "name": "Release",
+          "value": "'"[\`v$CURRENT_DATE\`](https://github.com/TWLBot/Builds/releases/tag/v$CURRENT_DATE)"'",
+          "inline": true
+        }
+      ],
+      "timestamp": "'"$TIMESTAMP"'"
+    } ]
+  }'
+else
+  WEBHOOK_DATA='{
+    "username": "",
+    "avatar_url": "https://travis-ci.org/images/logos/TravisCI-Mascot-1.png",
+    "embeds": [ {
+      "color": '$EMBED_COLOR',
+      "author": {
+        "name": "Job #'"$TRAVIS_JOB_NUMBER"' (Build #'"$TRAVIS_BUILD_NUMBER"') '"$STATUS_MESSAGE"' - '"$TRAVIS_REPO_SLUG"'",
+        "url": "'"$TRAVIS_BUILD_WEB_URL"'",
+        "icon_url": "'$AVATAR'"
       },
-      {
-        "name": "Release",
-        "value": "'"[\`v$CURRENT_DATE\`](https://github.com/TWLBot/Builds/releases/tag/v$CURRENT_DATE)"'",
-        "inline": true
-      }
-    ],
-    "timestamp": "'"$TIMESTAMP"'"
-  } ]
-}'
+      "title": "'"$COMMIT_SUBJECT"'",
+      "url": "'"$URL"'",
+      "description": "'"${COMMIT_MESSAGE//$'\n'/ }"\\n\\n"$CREDITS"'",
+      "fields": [
+        {
+          "name": "Commit",
+          "value": "'"[\`${TRAVIS_COMMIT:0:7}\`](https://github.com/$TRAVIS_REPO_SLUG/commit/$TRAVIS_COMMIT)"'",
+          "inline": true
+        },
+        {
+          "name": "Branch",
+          "value": "'"[\`$TRAVIS_BRANCH\`](https://github.com/$TRAVIS_REPO_SLUG/tree/$TRAVIS_BRANCH)"'",
+          "inline": true
+        },
+        {
+          "name": "Release",
+          "value": "'"[\`v$CURRENT_DATE\`](https://github.com/TWLBot/Builds/releases/tag/v$CURRENT_DATE)"'",
+          "inline": false
+        }
+      ],
+      "image": {
+        "url": "'"$IMAGE"'"
+      },
+      "timestamp": "'"$TIMESTAMP"'"
+    } ]
+  }'
+fi
 
 (curl --fail --progress-bar -A "TravisCI-Webhook" -H Content-Type:application/json -H X-Author:k3rn31p4nic#8383 -d "$WEBHOOK_DATA" "$2" \
   && echo -e "\\n[Webhook]: Successfully sent the webhook.") || echo -e "\\n[Webhook]: Unable to send webhook."
