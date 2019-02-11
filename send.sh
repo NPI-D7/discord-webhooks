@@ -70,7 +70,7 @@ WEBHOOK_DATA='{
       },
       {
         "name": "Release",
-        "value": "'"[\`$COMMIT_TAG\`](https://github.com/$TRAVIS_REPO_SLUG/releases/tag/$COMMIT_TAG)"'",
+        "value": "'"[\`$CURRENT_DATE\`](https://github.com/$TRAVIS_REPO_SLUG/releases/tag/$CURRENT_DATE)"'",
         "inline": true
       }
     ],
