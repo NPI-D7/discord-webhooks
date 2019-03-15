@@ -37,8 +37,8 @@ else
   CREDITS="$AUTHOR_NAME authored & $COMMITTER_NAME committed"
 fi
 
-if [[ $SYSTEM_PULLREQUEST_PULLREQUESTID != false ]]; then
-  URL="https://github.com/$REPOSITORY_NAME/pull/$SYSTEM_PULLREQUEST_PULLREQUESTID"
+if [[ $SYSTEM_PULLREQUEST_PULLREQUESTNUMBER != false ]]; then
+  URL="https://github.com/$REPOSITORY_NAME/pull/$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER"
 else
   URL=""
 fi
