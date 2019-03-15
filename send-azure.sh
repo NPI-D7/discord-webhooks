@@ -52,6 +52,7 @@ if [ $IMAGE = "" ]; then
       "color": '$EMBED_COLOR',
       "author": {
         "name": "Build #'"$BUILD_BUILDID"' '"$STATUS_MESSAGE"' - '"$BUILD_REPOSITORYNAME"'",
+        "url": "'"https://dev.azure.com/ds-homebrew/Builds/_build/results?buildId=$BUILD_BUILDID"'",
         "icon_url": "'$AVATAR'"
       },
       "title": "'"$COMMIT_SUBJECT"'",
@@ -85,6 +86,7 @@ else
       "color": '$EMBED_COLOR',
       "author": {
         "name": "Build #'"$BUILD_BUILDID"' '"$STATUS_MESSAGE"' - '"$BUILD_REPOSITORYNAME"'",
+        "url": "'"https://dev.azure.com/ds-homebrew/Builds/_build/results?buildId=$BUILD_BUILDID"'",
         "icon_url": "'$AVATAR'"
       },
       "title": "'"$COMMIT_SUBJECT"'",
