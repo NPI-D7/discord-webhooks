@@ -30,6 +30,7 @@ AUTHOR_NAME="$(git log -1 "$BUILD_SOURCEVERSION" --pretty="%aN")"
 COMMITTER_NAME="$(git log -1 "$BUILD_SOURCEVERSION" --pretty="%cN")"
 COMMIT_SUBJECT="$(git log -1 "$BUILD_SOURCEVERSION" --pretty="%s")"
 COMMIT_MESSAGE="$(git log -1 "$BUILD_SOURCEVERSION" --pretty="%b")"
+SOURCEBRANCH=${BUILD_SOURCEBRANCH##*/}
 
 if [ "$AUTHOR_NAME" == "$COMMITTER_NAME" ]; then
   CREDITS="$AUTHOR_NAME authored & committed"
@@ -37,11 +38,11 @@ else
   CREDITS="$AUTHOR_NAME authored & $COMMITTER_NAME committed"
 fi
 
-if [[ $SYSTEM_PULLREQUEST_PULLREQUESTNUMBER != false ]]; then
-  URL="https://github.com/$REPOSITORY_NAME/pull/$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER"
-else
-  URL=""
-fi
+# if [[ $SYSTEM_PULLREQUEST_PULLREQUESTNUMBER != false ]]; then
+#   URL="https://github.com/$REPOSITORY_NAME/pull/$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER"
+# else
+#   URL=""
+# fi
 
 TIMESTAMP=$(date --utc +%FT%TZ)
 if [ $IMAGE = "" ]; then
