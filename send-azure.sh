@@ -51,7 +51,7 @@ if [ $IMAGE = "" ]; then
     "embeds": [ {
       "color": '$EMBED_COLOR',
       "author": {
-        "name": "Build #'"$BUILD_NUMBER"' '"$STATUS_MESSAGE"' - '"$BUILD_REPOSITORYNAME"'",
+        "name": "Build #'"$CURRENT_DATE"' '"$STATUS_MESSAGE"' - '"$BUILD_REPOSITORYNAME"'",
         "url": "'"https://dev.azure.com/ds-homebrew/Builds/_build/results?buildId=$BUILD_BUILDID"'",
         "icon_url": "'$AVATAR'"
       },
@@ -85,7 +85,7 @@ else
     "embeds": [ {
       "color": '$EMBED_COLOR',
       "author": {
-        "name": "Build #'"$BUILD_NUMBER"' '"$STATUS_MESSAGE"' - '"$BUILD_REPOSITORYNAME"'",
+        "name": "Build #'"$CURRENT_DATE"' '"$STATUS_MESSAGE"' - '"$BUILD_REPOSITORYNAME"'",
         "url": "'"https://dev.azure.com/ds-homebrew/Builds/_build/results?buildId=$BUILD_BUILDID"'",
         "icon_url": "'$AVATAR'"
       },
