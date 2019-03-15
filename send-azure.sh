@@ -38,7 +38,7 @@ else
 fi
 
 if [[ $SYSTEM_PULLREQUEST_PULLREQUESTID != false ]]; then
-  URL="https://github.com/$BUILD_REPOSITORYNAME/pull/$SYSTEM_PULLREQUEST_PULLREQUESTID"
+  URL="https://github.com/$REPOSITORY_NAME/pull/$SYSTEM_PULLREQUEST_PULLREQUESTID"
 else
   URL=""
 fi
@@ -51,7 +51,7 @@ if [ $IMAGE = "" ]; then
     "embeds": [ {
       "color": '$EMBED_COLOR',
       "author": {
-        "name": "Build '"v$CURRENT_DATE"' '"$STATUS_MESSAGE"' - '"$BUILD_REPOSITORYNAME"'",
+        "name": "Build '"v$CURRENT_DATE"' '"$STATUS_MESSAGE"' - '"$REPOSITORY_NAME"'",
         "url": "'"https://dev.azure.com/ds-homebrew/Builds/_build/results?buildId=$BUILD_BUILDID"'",
         "icon_url": "'$AVATAR'"
       },
@@ -61,12 +61,12 @@ if [ $IMAGE = "" ]; then
       "fields": [
         {
           "name": "Commit",
-          "value": "'"[\`${BUILD_SOURCEVERSION:0:7}\`](https://github.com/$BUILD_REPOSITORYNAME/commit/$BUILD_SOURCEVERSION)"'",
+          "value": "'"[\`${BUILD_SOURCEVERSION:0:7}\`](https://github.com/$REPOSITORY_NAME/commit/$BUILD_SOURCEVERSION)"'",
           "inline": true
         },
         {
           "name": "Branch",
-          "value": "'"[\`$BUILD_SOURCEBRANCH\`](https://github.com/$BUILD_REPOSITORYNAME/tree/$BUILD_SOURCEBRANCH)"'",
+          "value": "'"[\`$BUILD_SOURCEBRANCH\`](https://github.com/$REPOSITORY_NAME/tree/$BUILD_SOURCEBRANCH)"'",
           "inline": true
         },
         {
@@ -85,7 +85,7 @@ else
     "embeds": [ {
       "color": '$EMBED_COLOR',
       "author": {
-        "name": "Build '"v$CURRENT_DATE"' '"$STATUS_MESSAGE"' - '"$BUILD_REPOSITORYNAME"'",
+        "name": "Build '"v$CURRENT_DATE"' '"$STATUS_MESSAGE"' - '"$REPOSITORY_NAME"'",
         "url": "'"https://dev.azure.com/ds-homebrew/Builds/_build/results?buildId=$BUILD_BUILDID"'",
         "icon_url": "'$AVATAR'"
       },
@@ -95,12 +95,12 @@ else
       "fields": [
         {
           "name": "Commit",
-          "value": "'"[\`${BUILD_SOURCEVERSION:0:7}\`](https://github.com/$BUILD_REPOSITORYNAME/commit/$BUILD_SOURCEVERSION)"'",
+          "value": "'"[\`${BUILD_SOURCEVERSION:0:7}\`](https://github.com/$REPOSITORY_NAME/commit/$BUILD_SOURCEVERSION)"'",
           "inline": true
         },
         {
           "name": "Branch",
-          "value": "'"[\`$BUILD_SOURCEBRANCH\`](https://github.com/$BUILD_REPOSITORYNAME/tree/$BUILD_SOURCEBRANCH)"'",
+          "value": "'"[\`$BUILD_SOURCEBRANCH\`](https://github.com/$REPOSITORY_NAME/tree/$BUILD_SOURCEBRANCH)"'",
           "inline": true
         },
         {
