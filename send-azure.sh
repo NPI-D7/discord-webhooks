@@ -67,7 +67,7 @@ if [ $IMAGE = "" ]; then
         },
         {
           "name": "Branch",
-          "value": "'"[\`$BUILD_SOURCEBRANCH\`](https://github.com/$REPOSITORY_NAME/tree/$BUILD_SOURCEBRANCH)"'",
+          "value": "'"[\`$SOURCEBRANCH\`](https://github.com/$REPOSITORY_NAME/tree/$SOURCEBRANCH)"'",
           "inline": true
         },
         {
@@ -101,7 +101,7 @@ else
         },
         {
           "name": "Branch",
-          "value": "'"[\`$BUILD_SOURCEBRANCH\`](https://github.com/$REPOSITORY_NAME/tree/$BUILD_SOURCEBRANCH)"'",
+          "value": "'"[\`$SOURCEBRANCH\`](https://github.com/$REPOSITORY_NAME/tree/$SOURCEBRANCH)"'",
           "inline": true
         },
         {
