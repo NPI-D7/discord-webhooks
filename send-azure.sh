@@ -10,19 +10,19 @@ case $1 in
   "success" )
     EMBED_COLOR=3066993
     STATUS_MESSAGE="Passed"
-    AVATAR="https://pbs.twimg.com/profile_images/1013370642417225728/BpqlqOrE_400x400.jpg"
+    AVATAR="https://docs.microsoft.com/en-us/azure/devops/_img/icons/project-icon.png"
     ;;
 
   "failure" )
     EMBED_COLOR=15158332
     STATUS_MESSAGE="Failed"
-    AVATAR="https://pbs.twimg.com/profile_images/1013370642417225728/BpqlqOrE_400x400.jpg"
+    AVATAR="https://docs.microsoft.com/en-us/azure/devops/_img/icons/project-icon.png"
     ;;
 
   * )
     EMBED_COLOR=0
     STATUS_MESSAGE="Status Unknown"
-    AVATAR="https://pbs.twimg.com/profile_images/1013370642417225728/BpqlqOrE_400x400.jpg"
+    AVATAR="https://docs.microsoft.com/en-us/azure/devops/_img/icons/project-icon.png"
     ;;
 esac
 
