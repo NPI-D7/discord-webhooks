@@ -10,19 +10,19 @@ case $1 in
   "success" )
     EMBED_COLOR=3066993
     STATUS_MESSAGE="Passed"
-    AVATAR="https://docs.microsoft.com/en-us/azure/devops/_img/icons/project-icon.png"
+    AVATAR="https://raw.githubusercontent.com/DS-Homebrew/discord-webhooks/master/azure-logo.png"
     ;;
 
   "failure" )
     EMBED_COLOR=15158332
     STATUS_MESSAGE="Failed"
-    AVATAR="https://docs.microsoft.com/en-us/azure/devops/_img/icons/project-icon.png"
+    AVATAR="https://raw.githubusercontent.com/DS-Homebrew/discord-webhooks/master/azure-logo.png"
     ;;
 
   * )
     EMBED_COLOR=0
     STATUS_MESSAGE="Status Unknown"
-    AVATAR="https://docs.microsoft.com/en-us/azure/devops/_img/icons/project-icon.png"
+    AVATAR="https://raw.githubusercontent.com/DS-Homebrew/discord-webhooks/master/azure-logo.png"
     ;;
 esac
 
@@ -48,7 +48,7 @@ TIMESTAMP=$(date --utc +%FT%TZ)
 if [ $IMAGE = "" ]; then
   WEBHOOK_DATA='{
     "username": "",
-    "avatar_url": "https://pbs.twimg.com/profile_images/1013370642417225728/BpqlqOrE_400x400.jpg",
+    "avatar_url": "https://raw.githubusercontent.com/DS-Homebrew/discord-webhooks/master/azure-logo.png",
     "embeds": [ {
       "color": '$EMBED_COLOR',
       "author": {
@@ -82,7 +82,7 @@ if [ $IMAGE = "" ]; then
 else
   WEBHOOK_DATA='{
     "username": "",
-    "avatar_url": "https://pbs.twimg.com/profile_images/1013370642417225728/BpqlqOrE_400x400.jpg",
+    "avatar_url": "https://raw.githubusercontent.com/DS-Homebrew/discord-webhooks/master/azure-logo.png",
     "embeds": [ {
       "color": '$EMBED_COLOR',
       "author": {
