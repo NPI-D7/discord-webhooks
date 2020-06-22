@@ -64,8 +64,8 @@ if [ $IMAGE = "" ]; then
           "inline": true
         },
         {
-          "name": "Release",
-          "value": "'"[\`v$CURRENT_DATE\`](https://github.com/TWLBot/Builds/releases/tag/v$CURRENT_DATE)"'",
+          "name": "TWLBot commit",
+          "value": "'"[\`${TWLBOT_COMMIT:0:7\`](https://github.com/TWLBot/Builds/releases/tag/v$CURRENT_DATE)"'",
           "inline": true
         }
       ],
