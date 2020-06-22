@@ -80,7 +80,7 @@ else
       "color": '$EMBED_COLOR',
       "author": {
         "name": "Build '"v$CURRENT_DATE"' '"$STATUS_MESSAGE"' - '"$GITHUB_REPOSITORY"'",
-        "url": "'"https://www.example.org"'",
+        "url": "'"https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"'",
         "icon_url": "'$AVATAR'"
       },
       "title": "'"$COMMIT_SUBJECT"'",
