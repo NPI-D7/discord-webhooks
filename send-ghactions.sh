@@ -65,7 +65,7 @@ if [ $IMAGE = "" ]; then
         },
         {
           "name": "TWLBot commit",
-          "value": "'"[\`${TWLBOT_COMMIT:0:7\`](https://github.com/TWLBot/Builds/releases/tag/v$CURRENT_DATE)"'",
+          "value": "'"[\`${TWLBOT_COMMIT:0:7}\`](https://github.com/TWLBot/Builds/commit/$TWLBOT_COMMIT)"'",
           "inline": true
         }
       ],
@@ -98,8 +98,8 @@ else
           "inline": true
         },
         {
-          "name": "Release",
-          "value": "'"[\`v$CURRENT_DATE\`](https://github.com/TWLBot/Builds/releases/tag/v$CURRENT_DATE)"'",
+          "name": "TWLBot commit",
+          "value": "'"[\`${TWLBOT_COMMIT:0:7}\`](https://github.com/TWLBot/Builds/commit/$TWLBOT_COMMIT)"'",
           "inline": false
         }
       ],
