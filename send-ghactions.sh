@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Required variables:
+# CURRENT_DATE: $(date +"%Y%m%d-%H%M%S")
+# AUTHOR_NAME: $(git log -1 "$GITHUB_SHA" --pretty="%aN")
+# COMMITTER_NAME: $(git log -1 "$GITHUB_SHA" --pretty="%cN")
+# COMMIT_SUBJECT: $(git log -1 "$GITHUB_SHA" --pretty="%s")
+# COMMIT_MESSAGE: $(git log -1 "$GITHUB_SHA" --pretty="%b")
+
 if [ -z "$2" ]; then
   echo -e "WARNING!!\nYou need to pass the WEBHOOK_URL environment variable as the second argument to this script.\nFor details & guide, visit: https://github.com/DS-Homebrew/discord-webhooks" && exit
 fi
@@ -25,11 +32,6 @@ case $1 in
     AVATAR="https://raw.githubusercontent.com/Universal-Team/discord-webhooks/master/github-logo.png"
     ;;
 esac
-
-AUTHOR_NAME="$(git log -1 "$GITHUB_SHA" --pretty="%aN")"
-COMMITTER_NAME="$(git log -1 "$GITHUB_SHA" --pretty="%cN")"
-COMMIT_SUBJECT="$(git log -1 "$GITHUB_SHA" --pretty="%s")"
-COMMIT_MESSAGE="$(git log -1 "$GITHUB_SHA" --pretty="%b")"
 
 if [ "$AUTHOR_NAME" == "$COMMITTER_NAME" ]; then
   CREDITS="$AUTHOR_NAME authored & committed"
