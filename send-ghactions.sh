@@ -17,19 +17,19 @@ case $1 in
   "success" )
     EMBED_COLOR=3066993
     STATUS_MESSAGE="Passed"
-    AVATAR="https://raw.githubusercontent.com/Universal-Team/discord-webhooks/master/github-logo.png"
+    AVATAR="https://raw.githubusercontent.com/NPI-D7/discord-webhooks/master/github-logo.png"
     ;;
 
   "failure" )
     EMBED_COLOR=15158332
     STATUS_MESSAGE="Failed"
-    AVATAR="https://raw.githubusercontent.com/Universal-Team/discord-webhooks/master/github-logo.png"
+    AVATAR="https://raw.githubusercontent.com/NPI-D7/discord-webhooks/master/github-logo.png"
     ;;
 
   * )
     EMBED_COLOR=0
     STATUS_MESSAGE="Status Unknown"
-    AVATAR="https://raw.githubusercontent.com/Universal-Team/discord-webhooks/master/github-logo.png"
+    AVATAR="https://raw.githubusercontent.com/NPI-D7/discord-webhooks/master/github-logo.png"
     ;;
 esac
 
@@ -67,7 +67,7 @@ if [ $IMAGE = "" ]; then
         },
         {
           "name": "Release",
-          "value": "'"[\`v$CURRENT_DATE\`](https://github.com/TWLBot/Builds/releases/tag/v$CURRENT_DATE)"'",
+          "value": "'"[\`v$CURRENT_DATE\`](https://github.com/Tobi-D7/builds/releases/tag/v$CURRENT_DATE)"'",
           "inline": true
         }
       ],
@@ -101,7 +101,7 @@ else
         },
         {
           "name": "Release",
-          "value": "'"[\`v$CURRENT_DATE\`](https://github.com/TWLBot/Builds/releases/tag/v$CURRENT_DATE)"'",
+          "value": "'"[\`v$CURRENT_DATE\`](https://github.com/Tobi-D7/builds/releases/tag/v$CURRENT_DATE)"'",
           "inline": false
         }
       ],
