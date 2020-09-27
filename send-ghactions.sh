@@ -42,7 +42,7 @@ fi
 TIMESTAMP=$(date --utc +%FT%TZ)
 if [ $IMAGE = "" ]; then
   WEBHOOK_DATA='{
-    "username": "Github Actions",
+    "username": "Github Builds",
     "avatar_url": "'$AVATAR'",
     "embeds": [ {
       "color": '$EMBED_COLOR',
@@ -76,7 +76,7 @@ if [ $IMAGE = "" ]; then
   }'
 else
   WEBHOOK_DATA='{
-    "username": "Github Actions",
+    "username": "Github Builds",
     "avatar_url": "'$AVATAR'",
     "embeds": [ {
       "color": '$EMBED_COLOR',
